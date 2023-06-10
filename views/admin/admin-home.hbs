@@ -1,0 +1,677 @@
+
+    <div class="container-scroller">
+      <!-- partial:partials/_sidebar.html -->
+      <!-- <img src="/stylesheets/assets/images/logo.svg" alt="logo" /> -->
+     <!--SIDEBAR-->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div
+          class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top"
+        >
+          <a class="sidebar-brand brand-logo" href="index.html"><h4
+              style="color: #fff;"
+            >Med <span style="color: #57d3e3;">X</span> India</h4></a>
+          <a class="sidebar-brand brand-logo-mini" href="index.html"><img
+              src="/stylesheets/assets/images/logo-mini.svg"
+              alt="logo"
+            /></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item profile">
+            <div class="profile-desc">
+              <div class="profile-pic">
+                <div class="count-indicator">
+                  <img
+                    class="img-xs rounded-circle"
+                    src="/stylesheets/assets/images/faces/face15.jpg"
+                    alt=""
+                  />
+                  <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal">{{admin.username}}</h5>
+                  <span>MedX Admin</span>
+                </div>
+              </div>
+              <a href="#" id="profile-dropdown" data-toggle="dropdown"><i
+                  class="mdi mdi-dots-vertical"
+                  style="margin-right: -1rem;"
+                ></i></a>
+              <div
+                class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
+                aria-labelledby="profile-dropdown"
+              >
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Account
+                      settings</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-onepassword text-info"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Change
+                      Password</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-calendar-today text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">To-do
+                      list</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Navigation</span>
+          </li>
+          <li class="nav-item menu-items active">
+            <a class="nav-link" href="/admin/">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">HOME</span>
+            </a>
+          </li>
+
+         <li class="nav-item menu-items active">
+            <a class="nav-link" href="/admin/view-products">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">PRODUCTS</span>
+            </a>
+          </li>
+
+
+          <li class="nav-item menu-items active">
+            <a class="nav-link" href="/admin/allOrders">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">ORDERS</span>
+            </a>
+          </li>
+           <li class="nav-item menu-items active">
+            <a class="nav-link" href="/admin/banner">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">BANNER</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items active">
+            <a class="nav-link" href="/admin/coupon">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">COUPONS</span>
+            </a>
+          </li>
+          <!-- <li class="nav-item menu-items">
+            <a class="nav-link" href="pages/charts/chartjs.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-chart-bar"></i>
+              </span>
+              <span class="menu-title">Charts</span>
+            </a>
+          </li> -->
+          <li class="nav-item menu-items active">
+            <a class="nav-link" href="/admin/allUsers">
+              <span class="menu-icon">
+                <i class="mdi mdi-contacts"></i>
+              </span>
+              <span class="menu-title">CUSTOMERS</span>
+            </a>
+          </li>
+           <li class="nav-item menu-items active">
+           <a class="nav-link" href="/admin/category">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">CATEGORY</span>
+            </a>
+          </li>
+         
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper"> 
+        <!-- partial:partials/_navbar.html -->
+    <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div
+            class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center"
+          >
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img
+                src="/stylesheets/assets/images/logo-mini.svg"
+                alt="logo"
+              /></a>
+          </div>
+          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+            <button
+              class="navbar-toggler navbar-toggler align-self-center"
+              type="button"
+              data-toggle="minimize"
+            >
+              <span class="mdi mdi-menu"></span>
+            </button>
+            <ul class="navbar-nav w-100">
+              <li class="nav-item w-100">
+                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search products"
+                  />
+                </form>
+              </li>
+            </ul>
+            <ul class="navbar-nav navbar-nav-right">
+           
+              <li class="nav-item nav-settings d-none d-lg-block">
+                <a class="nav-link" href="#">
+                  <i class="mdi mdi-view-grid"></i>
+                </a>
+              </li>
+              <li class="nav-item dropdown border-left">
+                <a
+                  class="nav-link count-indicator dropdown-toggle"
+                  id="messageDropdown"
+                  href="#"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="mdi mdi-email"></i>
+                  <span class="count bg-success"></span>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                  aria-labelledby="messageDropdown"
+                >
+                  <h6 class="p-3 mb-0">Messages</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <img
+                        src="/stylesheets/assets/images/faces/face4.jpg"
+                        alt="image"
+                        class="rounded-circle profile-pic"
+                      />
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Mark send you a
+                        message</p>
+                      <p class="text-muted mb-0"> 1 Minutes ago </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <img
+                        src="/stylesheets/assets/images/faces/face2.jpg"
+                        alt="image"
+                        class="rounded-circle profile-pic"
+                      />
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Cregh send you a
+                        message</p>
+                      <p class="text-muted mb-0"> 15 Minutes ago </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <img
+                        src="/stylesheets/assets/images/faces/face3.jpg"
+                        alt="image"
+                        class="rounded-circle profile-pic"
+                      />
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Profile picture
+                        updated</p>
+                      <p class="text-muted mb-0"> 18 Minutes ago </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">4 new messages</p>
+                </div>
+              </li>
+              <li class="nav-item dropdown border-left">
+                <a
+                  class="nav-link count-indicator dropdown-toggle"
+                  id="notificationDropdown"
+                  href="#"
+                  data-toggle="dropdown"
+                >
+                  <i class="mdi mdi-bell"></i>
+                  <span class="count bg-danger"></span>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                  aria-labelledby="notificationDropdown"
+                >
+                  <h6 class="p-3 mb-0">Notifications</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-calendar text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Event today</p>
+                      <p class="text-muted ellipsis mb-0">
+                        Just a reminder that you have an event today
+                      </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Settings</p>
+                      <p class="text-muted ellipsis mb-0"> Update dashboard </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-link-variant text-warning"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Launch Admin</p>
+                      <p class="text-muted ellipsis mb-0"> New admin wow! </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">See all notifications</p>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  id="profileDropdown"
+                  href="#"
+                  data-toggle="dropdown"
+                >
+                  <div class="navbar-profile">
+                    <img
+                      class="img-xs rounded-circle"
+                      src="/stylesheets/assets/images/faces/face15.jpg"
+                      alt=""
+                    />
+                    <p
+                      class="mb-0 d-none d-sm-block navbar-profile-name"
+                    >{{admin.username}}</p>
+                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                  </div>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                  aria-labelledby="profileDropdown"
+                >
+                  <h6 class="p-3 mb-0">Profile</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Settings</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a
+                    class="dropdown-item preview-item"
+                    href="/admin/adminLogout"
+                  >
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-logout text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Logout</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">Advanced settings</p>
+                </div>
+              </li>
+            </ul>
+            <button
+              class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+              type="button"
+              data-toggle="offcanvas"
+            >
+              <span class="mdi mdi-format-line-spacing"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- partial -->
+        <!---MAIN PANNEL--->
+        <div class="main-panel">
+        
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card corona-gradient-card">
+                  <div class="card-body py-0 px-0 px-sm-3">
+                    <div class="row align-items-center">
+                      <div class="col-4 col-sm-3 col-xl-2">
+                        <img
+                          src="/stylesheets/assets/images/dashboard/Group126@2x.png"
+                          class="gradient-corona-img img-fluid"
+                          alt=""
+                        />
+                      </div>
+                      <div class="col-5 col-sm-7 col-xl-8 p-0">
+                        <h4 class="mb-1 mb-sm-0">Check out New Oders! </h4>
+                        <p
+                          class="mb-0 font-weight-normal d-none d-sm-block"
+                        >Check out MedX India Latest Orders</p>
+                      </div>
+                      <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
+                        <span>
+                          <a
+                            href="https://www.bootstrapdash.com/product/corona-admin-template/"
+                            target="_blank"
+                            class="btn btn-outline-light btn-rounded get-started-btn"
+                          >Click To Check Out</a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+            <div class="row">
+ <div class="col-md-4 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Transaction History</h4>
+      <canvas id="payment" class="payment-chart"></canvas>
+      <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+        <div class="text-md-center text-xl-left">
+          <h6 class="mb-1">Cash Payment</h6>
+          <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+        </div>
+        <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+          <h6 class="font-weight-bold mb-0">${{cashAmount}}</h6>
+        </div>
+      </div>
+      <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+        <div class="text-md-center text-xl-left">
+          <h6 class="mb-1">Online Payment</h6>
+          <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+        </div>
+        <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+          <h6 class="font-weight-bold mb-0">${{onlineAmount}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--ADDING BAR GRAPH-->
+<div class="col-md-8 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex flex-row justify-content-between">
+        <h4 class="card-title mb-1">Sales Revenue</h4>
+        <p class="text-muted mb-1">Your data status</p>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <canvas id="revenue-chart" style="margin-top: 4rem;"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+{{!-- ORGINAL CODE FOR SALES REPORT --}}
+
+<div class="row">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">SALES REPORT</h4>
+<div style="display: flex;">
+  <div style="margin-right: 10px;">
+    <a class="btn btn-sm btn-outline-primary rounded-pill" href="/admin/salesreport?range=today">TODAY</a>
+  </div>
+  <div style="margin-right: 10px;">
+    <a class="btn btn-sm btn-outline-primary rounded-pill" href="/admin/salesreport?range=week">WEEK</a>
+  </div>
+  <div style="margin-right: 10px;">
+    <a class="btn btn-sm btn-outline-primary rounded-pill" href="/admin/salesreport?range=month">MONTH</a>
+  </div>
+  <div style="margin-right: 10px;">
+    <a class="btn btn-sm btn-outline-primary rounded-pill" href="/admin/salesreport?range=year">YEAR</a>
+  </div>
+</div>
+
+
+        <div class="table-responsive">
+          <table class="table">
+
+
+
+
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Orders</th>
+      <th>Delivery Details</th>
+      <th>Status</th>
+      <th>Payment Method</th>
+      <th>Revenue</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orders}}
+    <tr>
+      <td>{{this.date}}</td>
+      <td>{{this.products.[0].quantity}}</td>
+      <td>{{this.deliveryDetails.address}}</td>
+      <td>{{this.status}}</td>
+      <td>{{this.paymentMethod}}</td>
+      <td>${{this.totalAmount}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4" style="text-align: right;"><strong>Total Revenue:</strong></td>
+      <td>${{totalRevenue}}</td>
+
+    </tr>
+     <tr>
+        <td colspan="3" style="text-align: right;">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="printFormatDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              PRINT SALES REPORT
+            </button>
+            <div class="dropdown-menu" aria-labelledby="printFormatDropdown">
+  <a href="/admin/salesreport/download/pdf/today" class="btn btn-primary">Download Today's PDF</a>
+  <a href="/admin/salesreport/download/excel/today" class="btn btn-primary">Download Today's Excel</a>
+  <div class="dropdown-divider"></div>
+  <a href="/admin/salesreport/download/pdf/week" class="btn btn-primary">Download Weekly PDF</a>
+  <a href="/admin/salesreport/download/excel/week" class="btn btn-primary">Download Weekly Excel</a>
+  <div class="dropdown-divider"></div>
+  <a href="/admin/salesreport/download/pdf/month" class="btn btn-primary">Download Monthly PDF</a>
+  <a href="/admin/salesreport/download/excel/month" class="btn btn-primary">Download Monthly Excel</a>
+  <div class="dropdown-divider"></div>
+  <a href="/admin/salesreport/download/pdf/year" class="btn btn-primary">Download Yearly PDF</a>
+  <a href="/admin/salesreport/download/excel/year" class="btn btn-primary">Download Yearly Excel</a>
+</div>
+
+            {{!-- <div class="dropdown-menu" aria-labelledby="printFormatDropdown">
+               <a href="/admin/salesreport/download/pdf" class="btn btn-primary">Download PDF</a>
+  <a href="/admin/salesreport/download/excel" class="btn btn-primary">Download Excel</a>
+            </div> --}}
+          </div>
+        </td>
+      </tr>
+  </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Visitors by Countries</h4>
+                    <div class="row">
+                      
+                      <div class="col-md-7">
+                        <div id="audience-map" class="vector-map"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
+            <div
+              class="d-sm-flex justify-content-center justify-content-sm-between"
+            >
+              <span
+                class="text-muted d-block text-center text-sm-left d-sm-inline-block"
+              >Copyright © bootstrapdash.com 2020</span>
+              <span
+                class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"
+              >
+                Free
+                <a
+                  href="https://www.bootstrapdash.com/bootstrap-admin-template/"
+                  target="_blank"
+                >Bootstrap admin templates</a>
+                from Bootstrapdash.com</span>
+            </div>
+          </footer>
+          <!-- partial -->
+      </div>  
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+   
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Create the pie chart
+  const cashAmount = parseFloat({{cashAmount}});
+  const onlineAmount = parseFloat({{onlineAmount}});
+
+  const ctx = document.getElementById('payment').getContext('2d');
+  const paymentChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Cash Payment', 'Online Payment'],
+      datasets: [{
+        data: [cashAmount, onlineAmount],
+        backgroundColor: ['#FF6384', '#36A2EB'],
+      }],
+    },
+    options: {
+      responsive: true,
+    },
+  });
+</script>
+
+<script>
+  // Bar Chart Data
+  const revenueData = [{{yesterdayRevenue}}, {{todayRevenue}}]; // Replace with the actual revenue values
+
+  // Bar Chart Labels
+  const revenueLabels = ['Yesterday', 'Today'];
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('revenue-chart').getContext('2d');
+    const revenueChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: revenueLabels,
+        datasets: [{
+          label: 'Revenue',
+          data: revenueData,
+          backgroundColor: '#36A2EB',
+          borderColor: '#36A2EB',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            grid: {
+              display: true,
+              drawBorder: false
+            },
+            ticks: {
+              beginAtZero: true
+            }
+          }
+        }
+      }
+    });
+  });
+</script>
+
+
+
+
+

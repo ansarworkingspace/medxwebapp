@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Verify Email</title>
+
+	<!-- Meta tags -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<!-- Style -->
+	<link rel="stylesheet" href="/stylesheets/login.css" type="text/css" media="all" />
+   <style>
+    .error-message {
+      color: red;
+    }
+    .timer {
+      font-size: 20px;
+    }
+    .resend-btn {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+{{!-- add a update when user refresh page the time is not start again --}}
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- when timer stop the resend button display code in below --}}
+
+<!-- signup form -->
+<section class="w3l-signup-form">
+  <div id="form-section">
+    <div class="wrapper">
+      <!-- logo -->
+      <div class="logo">
+        <a class="brand-logo" href="index.html">Verify Your Account</a>
+      </div>
+      <!-- //logo -->
+
+      <!-- form -->
+      <div class="login-form">
+        <form id="verifyForm" action="/verify-email" method="POST"> <!-- Added an id to the form -->
+          <div class="form-fields d-grid">
+            <input id="username" type="email" name="email" placeholder="Email" />
+            <input id="token" type="password" name="token" placeholder="Token" required="required" />
+          </div>
+          <button type="submit">Verify</button>
+        </form>
+
+       <p id="timer" class="timer"></p> <!-- Timer display -->
+  <form id="resendForm" action="/resendOtp/{{email}}" method="POST">
+  <button id="resendBtn" class="resend-btn" type="submit">Resend OTP</button>
+</form>
+
+
+{{!-- <a id="resendBtn" class="resend-btn" style="display: none;" href="/resendOtp">Resend OTP</a> <!-- Resend OTP link --> --}}
+
+      </div>
+      <!-- //form -->
+
+      <div class="new-signup">
+        <p class="signup">Create new Account <a href="/signup" class="signuplink">Sign up Now</a></p>
+      </div>
+      <!-- //form -->
+
+      <!-- copyright -->
+      <div class="copy-right">
+        <p>&copy; 2023 All rights reserved | Design by <a href="" target="_blank">MedX India</a></p>
+      </div>
+      <!-- //copyright -->
+    </div>
+  </div>
+</section>
+
+<script>
+  // Set the timer duration in seconds
+  const timerDuration = 120; // Adjust as needed
+
+  // Start the timer
+  function startTimer(duration, display) {
+    let timer = duration,
+      minutes,
+      seconds;
+    const timerInterval = setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      display.textContent = minutes + ':' + seconds;
+
+      if (--timer < 0) {
+        clearInterval(timerInterval);
+        display.textContent = 'Timer expired';
+        document.getElementById('resendBtn').style.display = 'inline'; // Show resend button
+      }
+    }, 1000);
+  }
+
+  // Start the timer when the page loads
+  window.onload = function () {
+    const timerDisplay = document.getElementById('timer');
+    startTimer(timerDuration, timerDisplay);
+  };
+
+  // Resend button click handler
+  document.getElementById('resendBtn').addEventListener('click', function () {
+    // Hide the resend button
+    this.style.display = 'none';
+    
+    // Reset the timer
+    startTimer(timerDuration, timerDisplay);
+
+    // Reset the form
+    document.getElementById('verifyForm').reset();
+  });
+</script>
+
+
+	<script src="/smtp.js"></script>
+	<button onclick="sendEmail()">SEND EMAIL</button>
+	<!-- /signup form -->
+</body>
+
+</html>

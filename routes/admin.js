@@ -121,7 +121,7 @@ router.post('/add-product', async (req, res) => {
 
     let imageFile;
 
-    productHelpers.addProduct(productData, (id) => {
+    productHelpers.addProduct(productData, async(id) => {
       if (req.body.CroppedImage) {
         // Save the cropped image
         const croppedImageData = req.body.CroppedImage.replace(/^data:image\/jpeg;base64,/, '');
@@ -139,8 +139,8 @@ router.post('/add-product', async (req, res) => {
       if (imageFile) {
         productData.Image = imageFile;
       }
-
-      res.render('admin/add-product');
+      const categories = await adminHelpers.getAllCategories();
+      res.render('admin/add-product',{ categories });
     });
   } catch (error) {
     console.error('Error adding product:', error);

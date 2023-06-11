@@ -91,7 +91,7 @@ router.get("/products", async function (req, res, next) {
   const search = req.query.search;
   const category = req.query.category;
   let currentPage = parseInt(req.query.page) || 1; // Current page number
-  const limit = 3; // Number of products per page
+  const limit = 7; // Number of products per page
 
   console.log("req.query.page:", req.query.page);
   console.log("currentPage:", currentPage);
@@ -293,7 +293,23 @@ router.post('/remove-from-cart', function(req, res, next) {
   });
 });
 
-// PLACING ORDER ROUTER
+// // PLACING ORDER ROUTER
+// router.get('/place-order', async (req, res) => {
+//   if (req.session.user) {
+//     let products = await userHelpers.getCartProducts(req.session.user._id);
+//     let total = await userHelpers.getTotalAmount(req.session.user._id);
+//     let addresses = await userHelpers.getUserAddress(req.session.user._id);
+//     let wallet = await userHelpers.getWallet(req.session.user._id);
+
+//     console.log("Total Amount to be Paid: " + total);
+    
+//     let useWallet = wallet.amount >= total;
+//     res.render('user/place-order', { products, total, user: req.session.user, addresses, wallet, useWallet });
+//   } else {
+//     res.redirect('/login');
+//   }
+// });
+
 router.get('/place-order', async (req, res) => {
   if (req.session.user) {
     let products = await userHelpers.getCartProducts(req.session.user._id);
@@ -303,12 +319,13 @@ router.get('/place-order', async (req, res) => {
 
     console.log("Total Amount to be Paid: " + total);
     
-    let useWallet = wallet.amount >= total;
+    let useWallet = wallet && wallet.amount >= total; // Null check added
     res.render('user/place-order', { products, total, user: req.session.user, addresses, wallet, useWallet });
   } else {
     res.redirect('/login');
   }
 });
+
 
 // implimenting coupon limit usage
 router.post('/place-order', async (req, res) => {

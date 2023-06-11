@@ -57,9 +57,6 @@ async function sendVerificationEmail(emailId, token) {
   await createTestAccount();
   let info = await transporter.sendMail({
     from: process.env.SENDER_EMAIL, // sender address
-     to:"masurpytospksl@bugfoo.com",
-    // to: "ofpcuxrrkmmzjvw@bugfoo.com", // list of receivers
-
     to: emailId,
 
     subject: "Verification Email", // Subject line

@@ -113,8 +113,8 @@
                 <div class="container">
                     <ol class="breadcrumb" style="height: 5rem;
                 font-size: 1.5rem;">
-                        <li class="breadcrumb-item"><a href="index.html" >Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item"><a href="/" >Home</a></li>
+                        <li class="breadcrumb-item"><a href="/products">Shop</a></li>
                         <li class="breadcrumb-item active" aria-current="page">All Medicines</li>
                     </ol>
                 </div><!-- End .container -->
@@ -246,7 +246,7 @@
             <div class="product-action">
               {{#if STOCK}}
                 <a href="/detail-view/{{this._id}}" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
-                <a href="#" class="btn-product btn-compare" title="Compare"><span>compare</span></a>
+                {{!-- <a href="#" class="btn-product btn-compare" title="Compare"><span>compare</span></a> --}}
               {{/if}}
 
 
@@ -261,7 +261,7 @@
 
         <div class="col-lg-6">
           <div class="product-body product-action-inner">
-            <a href="#" class="btn-product btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
+            {{!-- <a href="#" class="btn-product btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a> --}}
             <div class="product-cat">
               <a href="#">{{this.Category}}</a>
             </div><!-- End .product-cat -->

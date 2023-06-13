@@ -35,6 +35,7 @@ getAllProducts: () => {
 },
 //ORGINAL CODE
 getPaginatedProducts: (query, page, limit) => {
+  query.Listed = true;//ADDED FOR SOFT DELETE
   return new Promise(async (resolve, reject) => {
     try {
       const collection = db.get().collection('product'); // Replace 'collection.PRODUCT_COLLECTION' with the actual collection name
@@ -56,13 +57,25 @@ getPaginatedProducts: (query, page, limit) => {
   });
 },
   
-  //DELETE PRODUCT
-    deleteProduct:(proId)=>{
-        return new Promise((resolve,reject)=>{
-            db.get().collection(collection.PRODUCT_COLLECTION).deleteOne({_id:objectId(proId)}).then((response)=>{
-                resolve(response)
-            })
-        })
+  //DELETE PRODUCT ORGINAL
+    // deleteProduct:(proId)=>{
+    //     return new Promise((resolve,reject)=>{
+    //         db.get().collection(collection.PRODUCT_COLLECTION).deleteOne({_id:objectId(proId)}).then((response)=>{
+    //             resolve(response)
+    //         })
+    //     })
+    // },
+
+
+    deleteProduct: (proId) => {
+      return new Promise((resolve, reject) => {
+          db.get().collection(collection.PRODUCT_COLLECTION).updateOne(
+              { _id: objectId(proId) },
+              { $set: { Listed: false } }
+          ).then((response) => {
+              resolve(response);
+          });
+      });
     },
 
     //GET PRODUCTS DETAILS

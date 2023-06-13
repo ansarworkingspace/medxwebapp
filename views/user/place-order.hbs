@@ -38,6 +38,7 @@
   <!-- Add the following lines to include SweetAlert JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script> --}}
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
@@ -152,8 +153,8 @@
                 <div class="container">
                     <ol class="breadcrumb" style="height: 5rem;
                 font-size: 1.5rem;">
-                        <li class="breadcrumb-item"><a href="index.html" >Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item"><a href="/" >Home</a></li>
+                        <li class="breadcrumb-item"><a href="/products">Shop</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Check Out</li>
                     </ol>
                 </div><!-- End .container -->
@@ -284,7 +285,7 @@
 		                				</table><!-- End .table table-summary -->
 
 		                				<div class="accordion-summary" id="accordion-payment">
-										    <div class="card">
+										    {{!-- <div class="card">
 										        <div class="card-header" id="heading-1">
 										            <h2 class="card-title">
 										                <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
@@ -312,7 +313,7 @@
 										                Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. 
 										            </div><!-- End .card-body -->
 										        </div><!-- End .collapse -->
-										    </div><!-- End .card -->
+										    </div><!-- End .card --> --}}
 
 										    <div class="card">
 										        {{!-- <div class="card-header" id="heading-3">
@@ -409,7 +410,7 @@
 
 										    </div><!-- End .card -->
 
-										    <div class="card">
+										    {{!-- <div class="card">
 										        <div class="card-header" id="heading-4">
 										            <h2 class="card-title">
 										                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
@@ -437,7 +438,7 @@
 										            <div class="card-body"> Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Lorem ipsum dolor sit ame.
 										            </div><!-- End .card-body -->
 										        </div><!-- End .collapse -->
-										    </div><!-- End .card -->
+										    </div><!-- End .card --> --}}
 										</div><!-- End .accordion -->
 
 
@@ -541,13 +542,9 @@
 
          <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
 
-
-
-
-
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-    $("#checkout-form").submit((e) => {
+{{!-- OLD CODE --}}
+{{!-- 
+$("#checkout-form").submit((e) => {
         e.preventDefault()
         $.ajax({
             url: '/place-order',
@@ -564,8 +561,41 @@
                 }
             }
         })
-    })
+    }) --}}
 
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    
+ $("#checkout-form").submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/place-order',
+            method: 'post',
+            data: $('#checkout-form').serialize(),
+            success: function(response) {
+                swal({
+                    title: "Continue With Payment",
+                    buttons: {
+                        confirm: {
+                            text: "OK",
+                            value: true,
+                            visible: true,
+                            className: "btn-ok",
+                            closeModal: true
+                        }
+                    }
+                }).then(function(confirmed) {
+                    if (confirmed) {
+                        if (response.codSuccess) {
+                            location.href = '/order-success';
+                        } else {
+                            razorpayPayment(response);
+                        }
+                    }
+                });
+            }
+        });
+    });
     function razorpayPayment(order) {
         var options = {
             "key": "rzp_test_i8bRHxqtJvHhyp", // Enter the Key ID generated from the Dashboard

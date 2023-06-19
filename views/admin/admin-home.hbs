@@ -11,7 +11,7 @@
               style="color: #fff;"
             >Med <span style="color: #57d3e3;">X</span> India</h4></a>
           <a class="sidebar-brand brand-logo-mini" href="index.html"><img
-              src="/stylesheets/assets/images/logo-mini.svg"
+              src="/frontHome/assets/img/logo 4.png"
               alt="logo"
             /></a>
         </div>
@@ -159,7 +159,7 @@
             class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center"
           >
             <a class="navbar-brand brand-logo-mini" href="index.html"><img
-                src="/stylesheets/assets/images/logo-mini.svg"
+                src="/frontHome/assets/img/logo 4.png"
                 alt="logo"
               /></a>
           </div>
@@ -174,17 +174,17 @@
             <ul class="navbar-nav w-100">
               <li class="nav-item w-100">
                 <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input
+                  {{!-- <input
                     type="text"
                     class="form-control"
                     placeholder="Search products"
-                  />
+                  /> --}}
                 </form>
               </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
            
-              <li class="nav-item nav-settings d-none d-lg-block">
+              {{!-- <li class="nav-item nav-settings d-none d-lg-block">
                 <a class="nav-link" href="#">
                   <i class="mdi mdi-view-grid"></i>
                 </a>
@@ -253,8 +253,8 @@
                   <div class="dropdown-divider"></div>
                   <p class="p-3 mb-0 text-center">4 new messages</p>
                 </div>
-              </li>
-              <li class="nav-item dropdown border-left">
+              </li> --}}
+              {{!-- <li class="nav-item dropdown border-left">
                 <a
                   class="nav-link count-indicator dropdown-toggle"
                   id="notificationDropdown"
@@ -310,7 +310,7 @@
                   <div class="dropdown-divider"></div>
                   <p class="p-3 mb-0 text-center">See all notifications</p>
                 </div>
-              </li>
+              </li> --}}
               <li class="nav-item dropdown">
                 <a
                   class="nav-link"
@@ -400,7 +400,7 @@
                       <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
                         <span>
                           <a
-                            href="https://www.bootstrapdash.com/product/corona-admin-template/"
+                            href="/admin/allOrders"
                             target="_blank"
                             class="btn btn-outline-light btn-rounded get-started-btn"
                           >Click To Check Out</a>
@@ -424,7 +424,7 @@
           <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
         </div>
         <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-          <h6 class="font-weight-bold mb-0">${{cashAmount}}</h6>
+          <h6 class="font-weight-bold mb-0">₹{{cashAmount}}</h6>
         </div>
       </div>
       <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
@@ -433,7 +433,7 @@
           <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
         </div>
         <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-          <h6 class="font-weight-bold mb-0">${{onlineAmount}}</h6>
+          <h6 class="font-weight-bold mb-0">₹{{onlineAmount}}</h6>
         </div>
       </div>
     </div>
@@ -562,7 +562,7 @@
 
 
             <div class="row">
-              <div class="col-12">
+              {{!-- <div class="col-12">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Visitors by Countries</h4>
@@ -574,7 +574,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
           
@@ -586,16 +586,16 @@
             >
               <span
                 class="text-muted d-block text-center text-sm-left d-sm-inline-block"
-              >Copyright © bootstrapdash.com 2020</span>
+              >Copyright © medxindia.online</span>
               <span
                 class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"
               >
-                Free
+                
                 <a
-                  href="https://www.bootstrapdash.com/bootstrap-admin-template/"
+                  href="/admin"
                   target="_blank"
-                >Bootstrap admin templates</a>
-                from Bootstrapdash.com</span>
+                >medxindia.online</a>
+                your online pharma</span>
             </div>
           </footer>
           <!-- partial -->

@@ -562,10 +562,7 @@ $("#checkout-form").submit((e) => {
             }
         })
     }) --}}
-
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-    
+  {{!-- dup code 
  $("#checkout-form").submit(function(e) {
         e.preventDefault();
         $.ajax({
@@ -595,7 +592,42 @@ $("#checkout-form").submit((e) => {
                 });
             }
         });
-    });
+    }); --}}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+ $("#checkout-form").submit((e) => {
+        e.preventDefault()
+        $.ajax({
+            url: '/place-order',
+            method: 'post',
+            data: $('#checkout-form').serialize(),
+            success: (response) => {
+                 swal({
+                    title: "Continue With Payment",
+                    buttons: {
+                        confirm: {
+                            text: "OK",
+                            value: true,
+                            visible: true,
+                            className: "btn-ok",
+                            closeModal: true
+                        }
+                    }
+                }).then(function(confirmed) {
+                    if (confirmed) {
+                if (response.codSuccess) {
+                    location.href = '/order-success'
+                }
+                else {
+                    
+                    razorpayPayment(response)
+                }
+
+                    }
+                });
+            }
+        })
+    })
     function razorpayPayment(order) {
         var options = {
             "key": "rzp_test_i8bRHxqtJvHhyp", // Enter the Key ID generated from the Dashboard
